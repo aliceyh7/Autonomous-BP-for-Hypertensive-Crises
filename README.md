@@ -1,6 +1,6 @@
 # Blood Pressure Simulation and Regulation System
 
-This project focuses on simulating and regulating blood pressure using automated control systems, as described in the accompanying manuscript. The study explores the use of a Proportional-Integral-Derivative (PID) control algorithm to regulate blood pressure in hypertensive patients. It models blood pressure dynamics, compares control versus treatment groups, and evaluates the effectiveness of autonomous regulation systems in achieving and maintaining target blood pressure levels.
+This project focuses on simulating and regulating blood pressure using automated control systems. The study explores the use of a Proportional-Integral-Derivative (PID) control algorithm to regulate blood pressure in hypertensive patients. It models blood pressure dynamics, compares control versus treatment groups, and evaluates the effectiveness of autonomous regulation systems in achieving and maintaining target blood pressure levels.
 
 ## Manuscript Overview
 
@@ -15,7 +15,9 @@ For further details on the project, please refer to the manuscript.
 
 The `unified_bp_simulation.py` script is the main implementation of the simulation and regulation system. It models the blood pressure dynamics for a group of patients using both untreated control group simulations and a PID-regulated treatment group. Below is an outline of the key steps in the script:
 
-### Key Steps in `unified_bp_simulation.py`
+![Simulation Graph](assets/algorithm_image.png)
+
+### The Simulation is in the file `unified_bp_simulation.py`
 
 1. **Simulation Parameters**:
    - Defines the simulation duration (`SIMULATION_TIME`), the number of patients (`NUM_PATIENTS`), and the time step (`TIME_STEP`).
