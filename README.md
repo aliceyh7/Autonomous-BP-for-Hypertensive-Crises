@@ -8,33 +8,43 @@ The `unified_bp_simulation.py` script is the main implementation of the simulati
 
 ![Simulation Graph](assets/algorithm_image.png)
 
-### The Simulation is in the file `unified_bp_simulation.py`
+## Algorithm Steps
 
-1. **Simulation Parameters**:
-   - Defines the simulation duration (`SIMULATION_TIME`), the number of patients (`NUM_PATIENTS`), and the time step (`TIME_STEP`).
-   - Configures PID control parameters (`P`, `I`, `D`) and the target blood pressure range.
+### 1. **Generate Blood Pressure Profiles**
+   - Blood pressure profiles are created to mimic real-world patient conditions, including phases of sustained pressures, sudden spikes, and dips.
+   - These profiles represent the natural variability of BP without intervention, providing the foundation for both control and treatment simulations.
 
-2. **Generate BP Profiles**:
-   - Uses the `generate_bp_profile()` function to create blood pressure profiles with spikes, dips, and sustained phases, mimicking real-life fluctuations.
+### 2. **Initialize Simulation Parameters**
+   - The simulation includes:
+     - **Number of patients**: 20 simulated patients.
+     - **Simulation time**: 11,000 seconds (approximately 3 hours).
+     - **Target BP**: 90 mmHg, with acceptable ranges of ±10 mmHg (control) and tighter ranges (e.g., ±1 mmHg) for further analysis.
 
-3. **Windkessel Model**:
-   - Implements a mathematical model of blood pressure dynamics (`windkessel_model`) to simulate the effect of infusion rates on mean arterial pressure (MAP).
+### 3. **Simulate Control Group**
+   - The control group represents patients without intervention. BP evolves according to the generated profiles, capturing the natural variability of hypertensive patients without treatment.
 
-4. **Run Simulations**:
-   - Simulates the control group with untreated blood pressure.
-   - Simulates the treatment group using a PID controller to adjust infusion rates based on deviations from the target MAP.
+### 4. **Apply PID Control for Treatment Group**
+   - The PID algorithm dynamically adjusts infusion rates based on deviations from the target BP.
+   - The **Windkessel model** is used to simulate physiological BP responses to infusion, incorporating random noise for realism.
 
-5. **Data Logging**:
-   - Logs time, blood pressure (control and treatment), and infusion rates for each patient across the simulation.
+### 5. **Track Metrics**
+   - Blood pressure values for both groups are logged at 1-second intervals.
+   - Additional metrics include:
+     - Time spent within and outside the target BP range.
+     - Number of infusion rate adjustments.
+     - Cumulative time each patient’s BP remains uncontrolled (outside the target range).
 
-6. **Metrics Calculation**:
-   - Evaluates patient-specific metrics, such as the time spent outside the target blood pressure range and the number of infusion rate adjustments.
+### 6. **Save Results**
+   - Outputs a detailed CSV file (`simulation_results.csv`) with time-series data for BP and infusion rates for all patients.
 
-7. **Results Storage**:
-   - Combines results for all patients into a single CSV file (`simulation_results.csv`) for further analysis.
+### 7. **Visualize Results**
+   - Generates a plot showing BP regulation for the treatment group, including:
+     - Lower and upper target range lines.
+     - BP trends for all patients over time.
 
-8. **Visualization**:
-   - Plots the blood pressure dynamics for the treatment group, showing how the PID controller regulates blood pressure over time.
+
+- The results evaluate the PID control algorithm’s ability to maintain BP within the target range and minimize variability.
+
 
 ### How to Run the Script
 
