@@ -5,14 +5,5 @@ myenv/
 # Ignore CSV files
 *.csv
 
-# Ignore Python cache and environment files (recommended)
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-
-# Ignore logs and system files (optional)
-*.log
-*.DS_Store
-Thumbs.db
+# Optional: Ignore macOS system files
+.DS_Store
