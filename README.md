@@ -8,7 +8,7 @@ The `unified_bp_simulation.py` script is the main implementation of the simulati
 
 ![Simulation Graph](assets/algorithm_image.png)
 
-## Algorithm Steps
+## Algorithm Steps (see unified_bp_simulation.py)
 
 ### 1. **Generate Blood Pressure Profiles**
    - Blood pressure profiles are created to mimic real-world patient conditions, including phases of sustained pressures, sudden spikes, and dips.
